@@ -103,6 +103,7 @@ html[data-theme="blueprint"] .story-body p, html[data-theme="neon"] .story-body 
 @media (max-width: 640px) {
   .story-tour { top: auto; right: 8px; bottom: calc(env(safe-area-inset-bottom) + 74px); width: min(370px, calc(100vw - 16px)); max-height: min(54dvh, 460px); overflow: auto; padding: 15px; border-radius: 14px; }
   .story-tour:not(.is-open) { bottom: calc(env(safe-area-inset-bottom) + 80px); width: auto; }
+  .story-tour:not(.is-open) .tour-stops, .story-tour:not(.is-open) .tour-intro { display: none; }
   .story-body h3 { font-size: 21px; }
   .story-body p { font-size: 11px; }
   .map-header { top: max(16px, env(safe-area-inset-top)); left: 16px; right: 16px; }

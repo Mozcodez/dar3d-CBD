@@ -19,6 +19,7 @@ const INITIAL_VIEW = {
   pitch: 60,
   bearing: -20,
 };
+const SMALL_SCREEN_QUERY = '(max-width: 640px)';
 interface CbdBuildingSummary {
   total_buildings: number;
   height_source_counts: { osm: number; estimated: number; landmark: number };
@@ -37,7 +38,9 @@ function App() {
   const [fps, setFps] = useState<number>();
   const [activeStory, setActiveStory] = useState<CityStory | null>(() => {
     const id = new URLSearchParams(window.location.search).get('tour');
-    return cityStories.find((story) => story.id === id) ?? cityStories[0];
+    const requestedStory = cityStories.find((story) => story.id === id);
+    if (requestedStory) return requestedStory;
+    return window.matchMedia(SMALL_SCREEN_QUERY).matches ? null : cityStories[0];
   });
   const shadowsRef = useRef<ReturnType<typeof installShadows> | null>(null);
   const oceanUpdaterRef = useRef<Awaited<ReturnType<typeof installOcean>> | null>(null);
@@ -58,6 +61,15 @@ function App() {
   useEffect(() => {
     syncLookUrl(look);
   }, [look]);
+
+  useEffect(() => {
+    const media = window.matchMedia(SMALL_SCREEN_QUERY);
+    const closeDefaultStoryOnSmallScreen = (event: MediaQueryListEvent) => {
+      if (event.matches && !new URLSearchParams(window.location.search).has('tour')) setActiveStory(null);
+    };
+    media.addEventListener('change', closeDefaultStoryOnSmallScreen);
+    return () => media.removeEventListener('change', closeDefaultStoryOnSmallScreen);
+  }, []);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -96,7 +108,7 @@ function App() {
       style: 'https://tiles.openfreemap.org/styles/bright',
       ...INITIAL_VIEW,
       attributionControl: { compact: false },
-      cooperativeGestures: true,
+      cooperativeGestures: false,
     });
 
     mapRef.current = map;
