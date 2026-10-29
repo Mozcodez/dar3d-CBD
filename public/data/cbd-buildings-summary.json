@@ -1,0 +1,80 @@
+{
+  "district": "CBD",
+  "bbox": [
+    -6.835,
+    39.265,
+    -6.8,
+    39.3
+  ],
+  "source": "OpenStreetMap via Overpass API",
+  "retrieved_on": "2026-10-29",
+  "total_buildings": 16686,
+  "raw_building_ways_and_relations": 17002,
+  "dropped": {
+    "non_polygon_or_missing_geometry": 0,
+    "area_under_5m2": 316,
+    "duplicate_osm_id": 0
+  },
+  "height_source_counts": {
+    "osm": 10857,
+    "estimated": 5829,
+    "landmark": 0
+  },
+  "height_source_percent": {
+    "osm": 65.07,
+    "estimated": 34.93,
+    "landmark": 0
+  },
+  "height_details": {
+    "explicit_osm_height": 5,
+    "osm_levels_derived": 10852,
+    "type_estimated": 5829,
+    "landmark": 0
+  },
+  "height_detail_percent": {
+    "explicit_osm_height": 0.03,
+    "osm_levels_derived": 65.04,
+    "type_estimated": 34.93,
+    "landmark": 0
+  },
+  "building_types": {
+    "yes": 5950,
+    "residential": 5049,
+    "commercial;residential": 2241,
+    "commercial": 1702,
+    "public": 436,
+    "school": 431,
+    "apartments": 255,
+    "kiosk": 112,
+    "industrial": 100,
+    "hospital": 99,
+    "construction": 98,
+    "utility": 39,
+    "mosque": 33,
+    "toilets": 26,
+    "warehouse": 22,
+    "office": 17,
+    "roof": 15,
+    "church": 14,
+    "university": 12,
+    "clinic": 4,
+    "transportation": 4,
+    "hotel": 4,
+    "boathouse": 4,
+    "college": 2,
+    "guardhouse": 2,
+    "service": 2,
+    "retail": 2,
+    "ruins": 1,
+    "private": 1,
+    "hostel": 1,
+    "residential;yes": 1,
+    "place_of_worship": 1,
+    "carport": 1,
+    "detached": 1,
+    "hut": 1,
+    "temple": 1,
+    "silo": 1,
+    "train_station": 1
+  }
+}

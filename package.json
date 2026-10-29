@@ -1,0 +1,32 @@
+{
+  "name": "dar-3d-map",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "data:fetch:cbd": "node scripts/fetch-cbd-buildings.mjs",
+    "data:process:cbd": "node scripts/process-cbd-buildings.mjs",
+    "data:build:cbd": "npm run data:fetch:cbd && npm run data:process:cbd"
+  },
+  "dependencies": {
+    "maplibre-gl": "6.16.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "osmtogeojson": "3.0.0-beta.5",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.12"
+  }
+}
